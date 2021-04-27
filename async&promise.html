@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- async gives yes or  no, promise gives one response, promises use  ajax  -->
+
+    <script>
+
+        // simulating a async
+        function asyncWithCallBack(callback1, callback2) {
+            setTimeout(() => {
+                callback1("callback1"); //the consolelogruns here from below data argument is declared callback1
+            }, 2000);
+
+            setTimeout(() => {
+                callback2("callback2");
+            }, 4000);
+
+        }
+
+        asyncWithCallBack(
+            function (data) { console.log("1", data) },
+            function (data) { console.log("2", data) },
+        )
+
+        // promise imolemented in js
+
+        function asyncWithPromise() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    resolve("promise  resolve");
+                }, 3000);
+
+                setTimeout(function () {
+                    reject("promise rejected");
+                }, 1000);
+            })
+        }
+
+        // implemented in js, if it has then then it is promise
+
+        asyncWithPromise()
+            .then(function (data) {
+                console.log(data + "hoho");
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+
+        async function testAsync() {
+            const data = await asyncWithPromise();
+            console.log("Async", data);
+        }
+
+        // await is  possible only for promise,always with async and  await use try catch
+        testAsync();
+    </script>
+</body>
+
+</html>

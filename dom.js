@@ -1,0 +1,1 @@
+// getElementById, querySelector, querySelectorAll, getElementByClassName, getElementsByTag

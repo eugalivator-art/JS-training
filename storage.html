@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="key" id="key" placeholder="key">
+        <input type="text" name="value" id="value" placeholder="value">
+
+        <button type="button" onclick="storeLocal()">local storage</button>
+        <button type="button" onclick="storeSession()">session storage</button>
+        <button type="button" onclick="clearLocal()">clear local storage</button>
+        <button type="button" onclick="clearSession()">clear session storage</button>
+        <button type="button" onclick="getData()">get Data</button>
+    </form>
+
+    <script>
+        const key = document.getElementById("key");
+        const val = document.getElementById("value");
+
+        function storeLocal() {
+            localStorage.setItem(key.value, JSON.stringify(val.value))
+        }
+
+        function storeSession() {
+            sessionStorage.setItem(key.value, JSON.stringify(val.value))
+        }
+
+        function clearLocal() {
+            localStorage.removeItem(key.value, JSON.stringify(val.value))
+        }
+
+
+        function clearSession() {
+            sessionStorage.removeItem(key.value, JSON.stringify(val.value))
+        }
+
+        // toget data, const data = localStorage.getItem('key')
+
+        function getData() {
+            const data = localStorage.getItem(key.value);
+            console.log(data);
+        }
+    </script>
+</body>s
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt1" name="firstname" onblur="testEvent(this)">
+    <!-- use this to identify which textbox fired the event -->
+    <input type="text" id="txt2" name="lastname" onfocus="testEvent()">
+    <input type="text" id="txt3" name="mehh" onfocus="evEvent()" onselect="evEvent()">
+
+    <hr>
+
+    <form onsubmit="evTest()" onreset="evEvent()">
+        <input type="text" name="fff" id="">
+        <button type="submit">Submit</button>
+        <button type="reset">Resset</button>
+
+    </form>
+
+    <script>
+        function evEvent() {
+            console.log(event);
+        }
+
+        function evTest() {
+            event.preventDefault();
+            console.log(event);
+        }
+
+        function testEvent(ctrl) {
+            console.log(ctrl, event);
+            if (event.target.value === "") {
+                event.target.style.borderColor = "red";
+            }
+            else {
+                event.target.style.borderColor = "black";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

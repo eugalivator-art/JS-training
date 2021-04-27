@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function sumOfNos(a, b, c, ...d) {
+            console.log(a, b, c, d);
+        }
+
+        sumOfNos(1, 2, 3);
+        sumOfNos(1, 2, 3, 4, 5, 6, "fgfgf", true);
+
+        // spread operator : immutability, arrays and objects
+
+        const product = { id: 1000, name: "product1", price: 23232 };
+        //const cart =[product]; same ref (data loss, not suggested)
+
+        const cart = [{ ...product }]
+
+        // new ref object
+
+        console.log(product);
+        console.log(cart);
+
+        cart[0].qty = 2;
+
+        console.log(product);
+        console.log(cart);
+    </script>
+
+</body>
+
+</html>
